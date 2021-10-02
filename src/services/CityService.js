@@ -9,6 +9,17 @@ class CityService {
             raw: true
         })
     }
+
+    async getByState(state) {
+        return cityModel.findAll({
+            where: {
+                state: state
+            },
+            raw: true
+        })
+    }
+
+
 }
 
 module.exports = new CityService()
