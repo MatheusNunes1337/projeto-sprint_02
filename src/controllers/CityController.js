@@ -12,7 +12,7 @@ class CityController {
             const cityName = req.params.name
             const cities = await CityService.getByName(cityName)
             if(cities.length === 0) {
-                throw new NotFound('city')
+                throw new NotFound('City')
             }
 
             res.status(200).json(cities) 
@@ -21,8 +21,18 @@ class CityController {
         }
     }
 
-    async getByState(req, res) {
-        return res.status(200).send()
+    async getByState(req, res, next) {
+        try {
+            const stateName = req.params.state
+            const cities = await CityService.getByState(stateName)
+            if(cities.length === 0) {
+                throw new NotFound('City')
+            }
+
+            res.status(200).json(cities) 
+        } catch(err) {
+            next(err)
+        }
     }
 }
 
