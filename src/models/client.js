@@ -15,11 +15,11 @@ const columns = {
         allowNull: false
     },
     age: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         allowNull: false
     },
     living_in: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         allowNull: false,
         references: {
             model: require('./city'),
