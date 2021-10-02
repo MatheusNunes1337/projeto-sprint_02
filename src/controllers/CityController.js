@@ -14,4 +14,4 @@ class CityController {
     }
 }
 
-module.exports = CityController
+module.exports = new CityController()
