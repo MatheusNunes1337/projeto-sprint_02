@@ -60,7 +60,7 @@ class ClientController {
         }
     }
 
-    async delete(req, res) {
+    async delete(req, res, next) {
         try {
             const clientId = req.params.id
             await ClientService.delete(clientId)
