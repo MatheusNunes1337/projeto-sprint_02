@@ -6,7 +6,13 @@ const replaceHyphenWithSpace = require('../utils/replaceHyphenWithSpace')
 class CityController {
 
     async create(req, res) {
-        return res.status(201).send()
+        try {
+            const cityData = req.body
+            const city = CityService.create(cityData)
+            res.status(201).json(city)
+        } catch(err) {
+            next(err)
+        }
     }
      
     async getByName(req, res, next) {
