@@ -2,7 +2,6 @@ function validation(schema) {
     return async (req, res, next) => {
         try {
             const data = req.body
-            console.log('dentro do middleware', req.body)
             await schema.validate(data)
             next()
             return next()
