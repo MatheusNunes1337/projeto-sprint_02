@@ -50,7 +50,14 @@ class ClientController {
     }
 
     async updateName(req, res, next) {
-        res.status(204).send()
+        try {
+            const { fullname } = req.body
+            const clientId = req.params.id
+            await ClientService.updateName({fullname}, clientId)
+            res.status(204).end()
+        } catch(err) {
+            next(err)
+        }
     }
 
     async delete(req, res) {
