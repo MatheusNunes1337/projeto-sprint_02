@@ -12,7 +12,6 @@ class CityController {
     async getByName(req, res, next) {
         try {
             const cityName = replaceHyphenWithSpace(req.params.name)
-            console.log(cityName)
             const cities = await CityService.getByName(cityName)
             if(cities.length === 0) {
                 throw new NotFound('City')
@@ -26,7 +25,7 @@ class CityController {
 
     async getByState(req, res, next) {
         try {
-            const stateName = req.params.state
+            const stateName = replaceHyphenWithSpace(req.params.state)
             const cities = await CityService.getByState(stateName)
             if(cities.length === 0) {
                 throw new NotFound('City')
