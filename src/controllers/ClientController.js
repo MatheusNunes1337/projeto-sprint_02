@@ -1,9 +1,12 @@
+const replaceHyphenWithSpace = require('../utils/replaceHyphenWithSpace')
+
 class ClientController {
     async create(req, res) {
         res.status(201).send()
     }
 
     async getByFullname(req, res) {
+        const fullname = replaceHyphenWithSpace(req.params.fullname)
         res.status(200).send()
     }
 
