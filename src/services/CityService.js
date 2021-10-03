@@ -19,6 +19,10 @@ class CityService {
         })
     }
 
+    async create(city) {
+        return cityModel.create(city)
+    }
+
 
 }
 
