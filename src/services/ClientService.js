@@ -9,6 +9,14 @@ class ClientService {
             raw: true
         })
     }
+    
+    async getById(id) {
+        return clientModel.findOne({
+            where: {
+                id: id
+            }
+        })
+    }
 }
 
 module.exports = new ClientService()
