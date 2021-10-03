@@ -2,10 +2,24 @@ const ClientService = require('../services/ClientService')
 
 const replaceHyphenWithSpace = require('../utils/replaceHyphenWithSpace')
 const NotFound = require('../errors/NotFound')
+const checkClientGender = require('../validations/checkClientGender')
+const { AgeFromDateString } = require('age-calculator')
 
 class ClientController {
-    async create(req, res) {
-        res.status(201).send()
+    async create(req, res, next) {
+        try {
+            const { gender, birthday } = req.body
+            checkClientGender(gender)
+
+            const age = new AgeFromDateString(birthday).age
+            req.body.age = age
+            
+            const client = await ClientService.create(req.body)
+            res.status(201).json(client)
+
+        } catch(err) {
+            next(err)
+        }
     }
 
     async getByFullname(req, res, next) {
