@@ -4,7 +4,6 @@ function validation(schema) {
             const data = req.body
             await schema.validate(data)
             next()
-            return next()
         } catch(err) {
             res.status(400).json(err.message)
         }

@@ -5,10 +5,10 @@ const replaceHyphenWithSpace = require('../utils/replaceHyphenWithSpace')
 
 class CityController {
 
-    async create(req, res) {
+    async create(req, res, next) {
         try {
             const cityData = req.body
-            const city = CityService.create(cityData)
+            const city = await CityService.create(cityData)
             res.status(201).json(city)
         } catch(err) {
             next(err)
