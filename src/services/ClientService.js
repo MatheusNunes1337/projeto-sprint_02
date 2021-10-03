@@ -17,6 +17,10 @@ class ClientService {
             }
         })
     }
+
+    async create(client) {
+        return clientModel.create(client)
+    }
 }
 
 module.exports = new ClientService()
