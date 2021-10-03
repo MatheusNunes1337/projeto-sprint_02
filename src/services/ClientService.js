@@ -29,6 +29,14 @@ class ClientService {
             }
         })
     }
+
+    async updateName(fullname, id) {
+        return clientModel.update(fullname, {
+            where: {
+                id: id
+            }
+        })
+    }
 }
 
 module.exports = new ClientService()
