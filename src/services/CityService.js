@@ -19,6 +19,14 @@ class CityService {
         })
     }
 
+    async getById(id) {
+        return cityModel.findOne({
+            where: {
+                id: id
+            }
+        })
+    }
+
     async create(city) {
         return cityModel.create(city)
     }

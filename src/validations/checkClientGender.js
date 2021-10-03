@@ -8,3 +8,5 @@ const checkClientGender = (gender) => {
         throw new InvalidField('gender')
     }
 }
+
+module.exports = checkClientGender
