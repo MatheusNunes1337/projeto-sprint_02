@@ -1,6 +1,8 @@
 const NotFound = require('../errors/NotFound')
 const CityService = require('../services/CityService')
 
+const replaceHyphenWithSpace = require('../utils/replaceHyphenWithSpace')
+
 class CityController {
 
     async create(req, res) {
@@ -9,7 +11,8 @@ class CityController {
      
     async getByName(req, res, next) {
         try {
-            const cityName = req.params.name
+            const cityName = replaceHyphenWithSpace(req.params.name)
+            console.log(cityName)
             const cities = await CityService.getByName(cityName)
             if(cities.length === 0) {
                 throw new NotFound('City')
