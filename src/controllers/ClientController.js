@@ -21,8 +21,17 @@ class ClientController {
         }
     }
 
-    async getById(req, res) {
-        res.status(200).send()
+    async getById(req, res, next) {
+        try {
+            const id = req.params.id
+            const client = await ClientService.getById(id)
+            if(!client) {
+                throw new NotFound('Client')
+            }
+            res.status(200).json(client)
+        } catch(err) {
+            next(err)
+        }
     }
 
     async updateName(req, res) {
