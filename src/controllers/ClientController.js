@@ -5,6 +5,7 @@ const NotFound = require('../errors/NotFound')
 const checkClientGender = require('../validations/checkClientGender')
 const { AgeFromDateString } = require('age-calculator')
 
+
 class ClientController {
     async create(req, res, next) {
         try {
@@ -48,12 +49,18 @@ class ClientController {
         }
     }
 
-    async updateName(req, res) {
+    async updateName(req, res, next) {
         res.status(204).send()
     }
 
     async delete(req, res) {
-        res.status(204).send()
+        try {
+            const clientId = req.params.id
+            await ClientService.delete(clientId)
+            res.status(204).end()
+        } catch(err) {
+            next(err)
+        }
     }
 }
 
