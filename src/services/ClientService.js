@@ -21,6 +21,14 @@ class ClientService {
     async create(client) {
         return clientModel.create(client)
     }
+
+    async delete(id) {
+        return clientModel.destroy({
+            where: {
+                id: id
+            }
+        })
+    }
 }
 
 module.exports = new ClientService()
