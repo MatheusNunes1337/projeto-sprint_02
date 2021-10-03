@@ -3,7 +3,7 @@ class ClientController {
         res.status(201).send()
     }
 
-    async getByName(req, res) {
+    async getByFullname(req, res) {
         res.status(200).send()
     }
 
