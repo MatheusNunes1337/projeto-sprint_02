@@ -1,6 +1,6 @@
 # Sprint 02 Project - API Rest
 
-### This API was developed as a second sprint evaluation project
+### This api is related to the 2nd sprint project
 
 ## Notes
 
