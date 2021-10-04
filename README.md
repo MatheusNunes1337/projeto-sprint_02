@@ -2,7 +2,14 @@
 
 ### This API was developed as a second sprint evaluation project
 
-## Technologies used:
+## Notes
+
+- There is no need to send the age along with the requisition body, because it is calculated from the date of birth.
+- A hyphen ( - ) was used to separate strings that had more than 1 word in the request parameters. Such as: http://localhost:3000/api/clients/John-Doe
+
+
+
+## Technologies used 💻 :
 
 * Node.Js v.16.8.0
 * Express
